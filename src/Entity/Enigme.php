@@ -422,6 +422,7 @@ class Enigme
         return $this;
     }
 
+<<<<<<< HEAD
     public function getDifficulty(): ?Difficulte
     {
         return $this->difficulty;
@@ -468,5 +469,10 @@ class Enigme
         $this->image_response_is_correct = $image_response_is_correct;
 
         return $this;
+=======
+    public function __toString()
+    {
+        return $this->getName();
+>>>>>>> master
     }
 }

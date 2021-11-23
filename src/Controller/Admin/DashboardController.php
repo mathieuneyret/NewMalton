@@ -2,6 +2,17 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Users;
+use App\Entity\Enigme;
+use App\Entity\Categorie;
+use App\Entity\Demande;
+use App\Entity\EnigmeFavorite;
+use App\Entity\EnigmeResolue;
+use App\Entity\Note;
+use App\Entity\SolutionAChoix;
+use App\Entity\SolutionMultiple;
+use App\Entity\SolutionUnique;
+use App\Entity\TypeEnigme;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -27,6 +38,17 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToCrud('Users', 'fas fa-user', Users::class);
+        yield MenuItem::linkToCrud('Enigme', 'fas fa-mask', Enigme::class);
+        yield MenuItem::linkToCrud('Categorie', 'fas fa-list', Categorie::class);
+        yield MenuItem::linkToCrud('Demande', 'fab fa-laravel', Demande::class);
+        yield MenuItem::linkToCrud('Enigme Favorite', 'fas fa-heart', EnigmeFavorite::class);
+        yield MenuItem::linkToCrud('Enigme Résolue', 'fas fa-check-circle', EnigmeResolue::class);
+        yield MenuItem::linkToCrud('Note', 'far fa-sticky-note', Note::class);
+        yield MenuItem::linkToCrud('Solution A Choix', 'fas fa-check', SolutionAChoix::class);
+        yield MenuItem::linkToCrud('Solution Multiple', 'fas fa-check', SolutionMultiple::class);
+        yield MenuItem::linkToCrud('Solution Unique', 'fas fa-check', SolutionUnique::class);
+        yield MenuItem::linkToCrud('Type Enigme', 'fab fa-symfony', TypeEnigme::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }
