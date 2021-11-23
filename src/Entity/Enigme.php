@@ -32,11 +32,6 @@ class Enigme
     private $statement;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $difficulty;
-
-    /**
      * @ORM\Column(type="text")
      */
     private $indice1;
@@ -103,6 +98,27 @@ class Enigme
      */
     private $enigmeFavorites;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Difficulte::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $difficulty;
+
+    /**
+     * @ORM\Column(type="string", length=3)
+     */
+    private $number_picarats;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $message_response_is_correct;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $image_response_is_correct;
+
     public function __construct()
     {
         $this->solutionMultiples = new ArrayCollection();
@@ -138,18 +154,6 @@ class Enigme
     public function setStatement(string $statement): self
     {
         $this->statement = $statement;
-
-        return $this;
-    }
-
-    public function getDifficulty(): ?int
-    {
-        return $this->difficulty;
-    }
-
-    public function setDifficulty(int $difficulty): self
-    {
-        $this->difficulty = $difficulty;
 
         return $this;
     }
@@ -418,8 +422,57 @@ class Enigme
         return $this;
     }
 
+<<<<<<< HEAD
+    public function getDifficulty(): ?Difficulte
+    {
+        return $this->difficulty;
+    }
+
+    public function setDifficulty(?Difficulte $difficulty): self
+    {
+        $this->difficulty = $difficulty;
+
+        return $this;
+    }
+
+    public function getNumberPicarats(): ?string
+    {
+        return $this->number_picarats;
+    }
+
+    public function setNumberPicarats(string $number_picarats): self
+    {
+        $this->number_picarats = $number_picarats;
+
+        return $this;
+    }
+
+    public function getMessageResponseIsCorrect(): ?string
+    {
+        return $this->message_response_is_correct;
+    }
+
+    public function setMessageResponseIsCorrect(string $message_response_is_correct): self
+    {
+        $this->message_response_is_correct = $message_response_is_correct;
+
+        return $this;
+    }
+
+    public function getImageResponseIsCorrect(): ?string
+    {
+        return $this->image_response_is_correct;
+    }
+
+    public function setImageResponseIsCorrect(string $image_response_is_correct): self
+    {
+        $this->image_response_is_correct = $image_response_is_correct;
+
+        return $this;
+=======
     public function __toString()
     {
         return $this->getName();
+>>>>>>> master
     }
 }

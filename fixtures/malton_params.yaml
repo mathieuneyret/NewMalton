@@ -1,0 +1,50 @@
+App\Entity\TypeEnigme:
+  type_enigme_1:
+    name: Texte
+  type_enigme_2:
+    name: Image
+  type_enigme_3:
+    name: Son
+
+App\Entity\Categorie:
+  categorie_1:
+    name: Calcul
+  categorie_2:
+    name: Logique
+  categorie_3:
+    name: Réflexion
+
+App\Entity\Difficulte:
+  difficulte_1:
+    difficulty: Facile
+  difficulte_2:
+    difficulty: Intermédiaire
+  difficulte_3:
+    difficulty: Difficile
+  difficulte_4:
+    difficulty: Layton
+
+App\Entity\Users:
+  users_1:
+    email: logan.lesaux@gmail.com
+    username: Piwatte
+    roles: [ROLE_ADMIN]
+    password: \$2y\$13\$KCfQ/iEFe0sglAn3C96FOOZ7uTQ58A5X/Oyx7dnGF6tcoOElsG4Ba
+
+  users_2:
+    email: neyret.mathieu69@gmail.com
+    username: ElGone
+    roles: [ROLE_ADMIN]
+    password: \$2y\$13\$KCfQ/iEFe0sglAn3C96FOOZ7uTQ58A5X/Oyx7dnGF6tcoOElsG4Ba
+
+  users_3:
+    email: lighburning43@hotmail.fr
+    username: Lightburning43
+    roles: [ROLE_ADMIN]
+    password: \$2y\$13\$KCfQ/iEFe0sglAn3C96FOOZ7uTQ58A5X/Oyx7dnGF6tcoOElsG4Ba
+
+  users_4:
+    email : anael.bonnafous@gmail.com
+    username: anael.b
+    roles: [ROLE_ADMIN]
+    password: \$2y\$13\$KCfQ/iEFe0sglAn3C96FOOZ7uTQ58A5X/Oyx7dnGF6tcoOElsG4Ba

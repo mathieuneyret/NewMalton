@@ -1,0 +1,37 @@
+App\Entity\Enigme:
+  enigme_1:
+    name: Hauts-de-forme
+    statement: La seule chose qui différencie ces quatres hauts-de-forme est le diamètre de leur bord.\r\rParmi ces quatre couvre-chefs se trouve un chapeau dont le diamètre du bord est égal à sa hauteur.\r\rLequel est-ce ?
+    indice1: ''
+    indice2: ''
+    indice3: ''
+    image_url: hauts_de_forme.png
+    message_response_is_incorrect: Eh non ! Réessaye !
+    type_enigme: '@type_enigme_1'
+    category: '@categorie_3'
+    message_response_is_correct: Bonne réponse!\r\rCette illusion d'optique est très célèbre.\r\rUne illusion d'optique est un phénomène visuel qui vous fait percevoir des éléments différemment de la réalité. Il existe de très nombreuses illusions d'optique très connues.\r\rMais où va le monde si on ne peut même plus se fier à ses yeux ?
+    image_response_is_correct: hauts_de_forme_solution.png
+    difficulty: '@difficulte_1'
+    number_picarats: '10'
+
+App\Entity\SolutionAChoix:
+  solutionachoix_1:
+    enigme: '@enigme_1'
+    value: A
+    position: '1'
+    is_valid: true
+  solutionachoix_2:
+    enigme: '@enigme_1'
+    value: B
+    position: '2'
+    is_valid: false
+  solutionachoix_3:
+    enigme: '@enigme_1'
+    value: C
+    position: '3'
+    is_valid: false
+  solutionachoix_4:
+    enigme: '@enigme_1'
+    value: D
+    position: '4'
+    is_valid: false
