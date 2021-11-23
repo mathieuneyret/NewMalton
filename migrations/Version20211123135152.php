@@ -20,6 +20,7 @@ final class Version20211123135152 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
+        $this->addSql('ALTER TABLE users ADD is_verified TINYINT(1) DEFAULT \'0\' NOT NULL, CHANGE nb_picarats nb_picarats INT DEFAULT 0');
         $this->addSql('ALTER TABLE users CHANGE is_verified is_verified TINYINT(1) DEFAULT \'0\' NOT NULL, CHANGE nb_picarats nb_picarats INT DEFAULT 0 NOT NULL');
     }
 
@@ -27,5 +28,6 @@ final class Version20211123135152 extends AbstractMigration
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE users CHANGE is_verified is_verified TINYINT(1) NOT NULL, CHANGE nb_picarats nb_picarats INT NOT NULL');
+        $this->addSql('ALTER TABLE users DROP is_verified, CHANGE nb_picarats nb_picarats INT NOT NULL');
     }
 }
