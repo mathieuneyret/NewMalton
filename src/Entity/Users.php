@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UsersRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -51,6 +53,39 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="text", nullable="true")
      */
     private $description;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $nb_picarats;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Note::class, mappedBy="joueur")
+     */
+    private $notes;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Demande::class, mappedBy="user")
+     */
+    private $demandes;
+
+    /**
+     * @ORM\OneToMany(targetEntity=EnigmeResolue::class, mappedBy="user")
+     */
+    private $enigmeResolues;
+
+    /**
+     * @ORM\OneToMany(targetEntity=EnigmeFavorite::class, mappedBy="user")
+     */
+    private $enigmeFavorites;
+
+    public function __construct()
+    {
+        $this->notes = new ArrayCollection();
+        $this->demandes = new ArrayCollection();
+        $this->enigmeResolues = new ArrayCollection();
+        $this->enigmeFavorites = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -168,6 +203,138 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getNbPicarats(): ?int
+    {
+        return $this->nb_picarats;
+    }
+
+    public function setNbPicarats(int $nb_picarats): self
+    {
+        $this->nb_picarats = $nb_picarats;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Note[]
+     */
+    public function getNotes(): Collection
+    {
+        return $this->notes;
+    }
+
+    public function addNote(Note $note): self
+    {
+        if (!$this->notes->contains($note)) {
+            $this->notes[] = $note;
+            $note->setJoueur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNote(Note $note): self
+    {
+        if ($this->notes->removeElement($note)) {
+            // set the owning side to null (unless already changed)
+            if ($note->getJoueur() === $this) {
+                $note->setJoueur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Demande[]
+     */
+    public function getDemandes(): Collection
+    {
+        return $this->demandes;
+    }
+
+    public function addDemande(Demande $demande): self
+    {
+        if (!$this->demandes->contains($demande)) {
+            $this->demandes[] = $demande;
+            $demande->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDemande(Demande $demande): self
+    {
+        if ($this->demandes->removeElement($demande)) {
+            // set the owning side to null (unless already changed)
+            if ($demande->getUser() === $this) {
+                $demande->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|EnigmeResolue[]
+     */
+    public function getEnigmeResolues(): Collection
+    {
+        return $this->enigmeResolues;
+    }
+
+    public function addEnigmeResolue(EnigmeResolue $enigmeResolue): self
+    {
+        if (!$this->enigmeResolues->contains($enigmeResolue)) {
+            $this->enigmeResolues[] = $enigmeResolue;
+            $enigmeResolue->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEnigmeResolue(EnigmeResolue $enigmeResolue): self
+    {
+        if ($this->enigmeResolues->removeElement($enigmeResolue)) {
+            // set the owning side to null (unless already changed)
+            if ($enigmeResolue->getUser() === $this) {
+                $enigmeResolue->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|EnigmeFavorite[]
+     */
+    public function getEnigmeFavorites(): Collection
+    {
+        return $this->enigmeFavorites;
+    }
+
+    public function addEnigmeFavorite(EnigmeFavorite $enigmeFavorite): self
+    {
+        if (!$this->enigmeFavorites->contains($enigmeFavorite)) {
+            $this->enigmeFavorites[] = $enigmeFavorite;
+            $enigmeFavorite->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEnigmeFavorite(EnigmeFavorite $enigmeFavorite): self
+    {
+        if ($this->enigmeFavorites->removeElement($enigmeFavorite)) {
+            // set the owning side to null (unless already changed)
+            if ($enigmeFavorite->getUser() === $this) {
+                $enigmeFavorite->setUser(null);
+            }
+        }
 
         return $this;
     }

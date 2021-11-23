@@ -88,11 +88,29 @@ class Enigme
      */
     private $solutionAChoixes;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Note::class, mappedBy="enigme")
+     */
+    private $notes;
+
+    /**
+     * @ORM\OneToMany(targetEntity=EnigmeResolue::class, mappedBy="enigme")
+     */
+    private $enigmeResolues;
+
+    /**
+     * @ORM\OneToMany(targetEntity=EnigmeFavorite::class, mappedBy="enigme")
+     */
+    private $enigmeFavorites;
+
     public function __construct()
     {
         $this->solutionMultiples = new ArrayCollection();
         $this->solutionUniques = new ArrayCollection();
         $this->solutionAChoixes = new ArrayCollection();
+        $this->notes = new ArrayCollection();
+        $this->enigmeResolues = new ArrayCollection();
+        $this->enigmeFavorites = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -304,6 +322,96 @@ class Enigme
             // set the owning side to null (unless already changed)
             if ($solutionAChoix->getEnigme() === $this) {
                 $solutionAChoix->setEnigme(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Note[]
+     */
+    public function getNotes(): Collection
+    {
+        return $this->notes;
+    }
+
+    public function addNote(Note $note): self
+    {
+        if (!$this->notes->contains($note)) {
+            $this->notes[] = $note;
+            $note->setEnigme($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNote(Note $note): self
+    {
+        if ($this->notes->removeElement($note)) {
+            // set the owning side to null (unless already changed)
+            if ($note->getEnigme() === $this) {
+                $note->setEnigme(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|EnigmeResolue[]
+     */
+    public function getEnigmeResolues(): Collection
+    {
+        return $this->enigmeResolues;
+    }
+
+    public function addEnigmeResolue(EnigmeResolue $enigmeResolue): self
+    {
+        if (!$this->enigmeResolues->contains($enigmeResolue)) {
+            $this->enigmeResolues[] = $enigmeResolue;
+            $enigmeResolue->setEnigme($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEnigmeResolue(EnigmeResolue $enigmeResolue): self
+    {
+        if ($this->enigmeResolues->removeElement($enigmeResolue)) {
+            // set the owning side to null (unless already changed)
+            if ($enigmeResolue->getEnigme() === $this) {
+                $enigmeResolue->setEnigme(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|EnigmeFavorite[]
+     */
+    public function getEnigmeFavorites(): Collection
+    {
+        return $this->enigmeFavorites;
+    }
+
+    public function addEnigmeFavorite(EnigmeFavorite $enigmeFavorite): self
+    {
+        if (!$this->enigmeFavorites->contains($enigmeFavorite)) {
+            $this->enigmeFavorites[] = $enigmeFavorite;
+            $enigmeFavorite->setEnigme($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEnigmeFavorite(EnigmeFavorite $enigmeFavorite): self
+    {
+        if ($this->enigmeFavorites->removeElement($enigmeFavorite)) {
+            // set the owning side to null (unless already changed)
+            if ($enigmeFavorite->getEnigme() === $this) {
+                $enigmeFavorite->setEnigme(null);
             }
         }
 
