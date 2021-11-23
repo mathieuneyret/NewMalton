@@ -1,18 +1,145 @@
 App\Entity\Enigme:
   enigme_1:
     name: Hauts-de-forme
-    statement: La seule chose qui différencie ces quatres hauts-de-forme est le diamètre de leur bord.\r\rParmi ces quatre couvre-chefs se trouve un chapeau dont le diamètre du bord est égal à sa hauteur.\r\rLequel est-ce ?
-    indice1: ''
-    indice2: ''
-    indice3: ''
+    statement: La seule chose qui différencie ces quatres hauts-de-forme est le diamètre de leur bord.\n\nParmi ces quatre couvre-chefs se trouve un chapeau dont le diamètre du bord est égal à sa hauteur.\n\nLequel est-ce ?
+    indice1: Ne répondez pas en vous fiant à vos yeux.\r\rSi cette énigme pouvait être résolue grâce à un simple coup d'œil, ce ne serait pas énigme.\n\nL'œil perçoit la hauteur et la longueur différemment.
+    indice2: Vous pouvez oublier B.
+    indice3: Vous pouvez également oublier D.
     image_url: hauts_de_forme.png
-    message_response_is_incorrect: Eh non ! Réessaye !
+    message_response_is_incorrect: Mauvaise réponse!\r\rRegardez plus attentivement.
     type_enigme: '@type_enigme_1'
     category: '@categorie_3'
-    message_response_is_correct: Bonne réponse!\r\rCette illusion d'optique est très célèbre.\r\rUne illusion d'optique est un phénomène visuel qui vous fait percevoir des éléments différemment de la réalité. Il existe de très nombreuses illusions d'optique très connues.\r\rMais où va le monde si on ne peut même plus se fier à ses yeux ?
+    message_response_is_correct: Bonne réponse!\r\rCette illusion d'optique est très célèbre.\n\nUne illusion d'optique est un phénomène visuel qui vous fait percevoir des éléments différemment de la réalité. Il existe de très nombreuses illusions d'optique très connues.\n\nMais où va le monde si on ne peut même plus se fier à ses yeux ?
     image_response_is_correct: hauts_de_forme_solution.png
     difficulty: '@difficulte_1'
     number_picarats: '10'
+  enigme_2:
+    name: Contre-la-montre
+    statement: Une horloge à aiguilles standard est composée d'une aiguille pour les heures et d'une aiguille plus longue et plus rapide pour les minutes.\r\rEn supposant que cette horloge soit parfaitement à l'heure, combien de fois l'aiguille des minutes dépasse-t-elle l'aiguille des heures entre midi et minuit ?
+    indice1: Les aiguilles se superposent une fois par heure. Donc en l'espace de douze heures, elles devraient se dépasser douze fois...\n\nFaux!
+    indice2: Les deux aiguilles comment l'une sur l'autre à midi. Donc techniquement, la grande aiguille ne dépasse pas la petite.
+    indice3: Un dépassement par heure.\n\nMais en fait, la grande aiguille ne dépasse pas la petite sur l'heure. Elle la dépasse autour de 1h06, ou bien encore de 6h33.\n\nÀ quelle heure l'aiguille des minutes dépassera-t-elle celle des heures pour la dernière fois ?
+    image_url: contre_la_montre.jpg
+    message_response_is_incorrect: Mauvaise réponse!\r\rSi vous essayez avec une vraie horloge, la réponse devient évidente, mais essayez de réfléchir à la question.
+    type_enigme: '@type_enigme_1'
+    category: '@categorie_3'
+    message_response_is_correct: Bonne réponse!\r\rL'aiguille des minutes dépasse l'aiguille des heures dix fois. En y réfléchissant bien, la réponse est évidente, mais il est possible que vous vous soyez laissé piéger par la question.\n\nL'aiguille des minutes dépasse l'aiguille des heures une fois par heure, mais étant donné qu'elles commencent et terminent le problème l'une sur l'autre, on ne peut pas réellement considérer que la petite aiguille a été dépassée.
+    image_response_is_correct: contre_la_montre_solution.jpg
+    difficulty: '@difficulte_2'
+    number_picarats: 50'
+  enigme_3:
+    name: Ensemencement
+    statement: Antoine et Jean-Thomas ont été embauchés par un fermer pour semer des graindes. <span class="red">Un terrain de 4 hectares a été séparé en deux</span> afin qu'ils puissent travailler séparément sur leur moitié.\n\nJean-Thomas commence à l'est, tandis qu'Antoine comment à l'ouest.\n\nAntoine laboure <span class="red">1 hectare en 20 minutes</span>. Cela en prend <span class="red">40</span> à Jean-Thomas, mais il <span class="red">sème les graines trois fois plus vite qu'Antoine</span>.\n\nSachant que la rémunération pour l'ensemencement de la totalité du terrain a été établie à 100 euros, combien Jean-Thomas doit-il recevoir ?
+    indice1: Les deux jeunes hommes reçoivent 100 euros et doivent maintenant se les partager en fonction du travail founi. Ici, "travail fourni" se réfère au nombre d'hectares que chacun aura labouré et ensemencé.\n\nRelisez bien l'énoncé et réfléchissez bien au nombre d'hectares sur lequel chacun aura travaillé.
+    indice2: Étant donné qu'il s'agit ici de déterminer le nombre d'hectares que chacun aura ensemencé, le temps que chacun aura mis n'entre pas en jeu pour le partage des 100 euros.
+    indice3: Vous êtes sûr d'avoir lu la phrase qui dit que le terrain de 4 hectares a été séparé en deux afin qu'ils puissent travailler séparément sur leur moitié ? Qu'est-ce que cela vous apprend sur la quantité de travail fournie par chacun ?
+    image_url: ensemencement.jpg
+    message_response_is_incorrect: Mauvaise réponse!\r\rVous avez du mal à trouver qui a fait quoi en combien de temps ? Ne vous laissez pas submerger par toutes ces données...
+    type_enigme: '@type_enigme_1'
+    category: '@categorie_2'
+    message_response_is_correct: Bonne réponse!\r\rAu début de l'énonce, il est dit que le terrain est séparé en deux afin qu'ils travaillent séparément sur leur moitié.\n\nAutrement dit, ils ont effectué la même quantité de travail.\n\nComme ils ont chacun effectué la moitié du travail, ils devraient se partager les 100 euros équitablement. Chacun gagne donc 50 euros.
+    image_response_is_correct: ensemencement_solution.jpg
+    difficulty: '@difficulte_1'
+    number_picarats: '20'
+  enigme_4:
+    name: Équations mystères
+    statement: A, B, C et D sont des nombres à un chiffre.\nLes équations suivantes sont toutes vraies.\n\nA + C = D\nA x B = C\nC - B = B\nA x 4 = D\n\nTrouvez les chiffres représentés par chaque lettre. La réponse devra comporter les quatre chiffres dans l'ordre A, B, C et D.
+    indice1: Deux des équations ont D pour résultat.\n\nVous devriez commencer par comparer ces deux équations.
+    indice2: A + C et A x 4 sont tous deux égaux à D.\nÉtant donné que A x 4 est égal à A + A + A + A, C doit être égal à A x 3.
+    indice3: C - B = B. Cela signifie que C = 2 x B.\n\nVous savez grâce à l'indice précédent que C = A x 3.\n\nIl n'existe qu'un seul chiffre divisible à la fois par 2 et par 3. Trouvez duquel il s'agit et vous détiendrez la clé de cette énigme.
+    image_url: equations_mysteres.jpg
+    message_response_is_incorrect: Mauvaise réponse!\r\rÉtudiez les équations avec attention et la réponse deviendra claire.
+    type_enigme: '@type_enigme_1'
+    category: '@categorie_1'
+    message_response_is_correct: Bonne réponse!\r\rABCD = 2368.\nÉtant donné que A + C et que A x 4 sont tous les deux égaux à D, alors C doit être égal à 3A.\n\nSi C - B = B, alors C doit être égal à 2 B. Le seul chiffre divisible à la fois par 2 et par 3 est 6.\n\nUne fois que l'on sait que C = 6, le reste doit couler de source.
+    image_response_is_correct: equations_mysteres_solution.jpg
+    difficulty: '@difficulte_1'
+    number_picarats: '10'
+  enigme_5:
+    name: Un peu de géométrie !
+    statement: Comme le montre le schéma ci-dessous, vous disposez d'un quart de cercle. À l'intérieur se trouve un rectangle ABCD dont le point D se trouve sur le cercle. Le point B est de plus le centre du cercle.\n\nQuelle est la longueur du segment AC ?
+    indice1: Vous avez probablement remarqué que le triangle ABC était un triangle rectangle.\n\nFine observation. Mais est-ce vraiment nécessaire de passer par là pour trouver la réponse ?
+    indice2: Vous n'avez pas besoin d'utiliser le théorème de Pythagore pour trouver la réponse.\nUn autre élément du schéma devrait avoir exactement la même longueur que le segment AC.
+    indice3: Les deux diagonales d'un rectangle sont de même longueur. Les segment AC et BD sont donc identiques.\n\nAvez-vous remarqué que BD correspond également à un autre élément du schéma ?
+    image_url: un_peu_de_geometrie.jpg
+    message_response_is_incorrect: Mauvaise réponse!\r\rRegardez le schéma plus attentivement.\nLa réponse ne nécessite aucun calcul compliqué.
+    type_enigme: '@type_enigme_1'
+    category: '@categorie_2'
+    message_response_is_correct: Bonne réponse!\r\rLe segment AC est la diagonale du rectangle, sa longueur est donc exactement la même que celle de l'autre diagonale, le segment BD.\nOr, le segment BD correspond au rayon du cercle. Dès lors, il ne reste plus qu'à additionner 5 et 5.
+    image_response_is_correct: un_peu_de_geometrie_solution.jpg
+    difficulty: '@difficulte_1'
+    number_picarats: '20'
+  enigme_6:
+    name: Naufrage
+    statement: Au secours ! Quinze personnes sont piégées sur un navire en train de sombrer. Le bateau va couler dans très exactement vingt minutes.\n\nLeur seule change de survie est le canot de sauvetage qui ne peut prendre que cinq personnes à sont bord. Histoire d'arranger les choses, les eaux sont infestées par de dangereux requins mangeurs d'hommes. Nager est donc hors de question !\n\nUn aller-retour en direction de l'île la plus proche prend environ neuf minutes. Combien de personnes pourront être sauvées ?
+    indice1: En vingt minutes, le canot de sauvetage peut effectuer deux aller-retour complets de neuf minutes.\n\nÀ la fin du deuxième aller-retour, où se trouve le cannot ?
+    indice2: Après le deuxième aller-retour, le canot de sauvetage se retrouve à nouveau au navire.\nÀ ce moment-là, dix-huit minutes se sont écoulées. Le navire n'a donc pas encore coulé, il est donc possible de sauver encore davantage de personnes.\n\nLe canot de sauvetage a donc le temps d'effectuer trois voyages.
+    indice3: Vous savez que le canot de sauvetage a le temps d'effectuer trois voyages.\n\nMais soyez attentif, car il y a un piège.\nCela est triste à dire, mais tout le monde ne verra pas le soleil se coucher ce soir...
+    image_url: naufrage.jpg
+    message_response_is_incorrect: Mauvaise réponse!\r\rLe canot de sauvetage ne peut pas repartir de l'île vers le navire s'il est vide, n'est-ce pas ?
+    type_enigme: '@type_enigme_1'
+    category: '@categorie_1'
+    message_response_is_correct: Bonne réponse!\r\rUne minute de silence pour les deux malheureux qui ne s'en sont pas sortis...
+    image_response_is_correct: naufrage_solution.jpg
+    difficulty: '@difficulte_1'
+    number_picarats: '30'
+  enigme_7:
+    name: La bonne chaise
+    statement: Une nouvelle salle des fêtes vient d'être construire dans votre ville. Elle sera capable d'accueillir de nombreux évènements, allant des concerts aux conventions, en passant par les banquets, les bals, etc.\n\nMaintenant que la salle est terminée, il est temps de commander les chaises. Parmi ces cinq modèles que l'on vous suggère, un seul <span class="red">correspond tout à fait</span> aux exigences de cette nouvelle salle.\n\nDe quelle chaise s'agit-il ?
+    indice1: Comme cela a été dit dans l'énoncé, le but de la salle est d'accueillir de nombreux types d'évènements différents. Donc à priori, en fonction de l'évènement du jour, le nombre de chaises requis risque de varier.
+    indice2: La plupart des gens choisissent leurs sièges selon leur aspect ou leur confort. Une chaise utilisée souvent se doit d'être confortable.\n\nMais ce qui nous intéresse le plus ici n'est pas la chaise lorsqu'elle est utilisée, mais au contraire, lorsqu'elle n'est <span class="red">pas utilisée</span>.
+    indice3: Quand un évènement attire beaucoup de personnes, il faut un nombre de chaises en conséquence.\n\nMais que faire de toutes ces chaises lors des évènements moins importants ? Il n'est pas forcément facile de ranger un grand nombre de chaises.\n\nLaquelle de ces chaises est <span class="red">la plus facile à ranger</span> ?
+    image_url: la_bonne_chaise.jpg
+    message_response_is_incorrect: Mauvaise réponse!\r\rVous avez probablement déjà vu à quoi ressemblent les chaises dans une telle salle. Ont-elles quelque chose de particulier ?
+    type_enigme: '@type_enigme_1'
+    category: '@categorie_2'
+    message_response_is_correct: Bonne réponse!\r\rParmi les cinq modèles, seule la chaise E peut s'empiler.\n\nUne telle salle doit être capable de s'adapter aux différents évènements qu'elle accueillera.\nIl faut donc des chaises qui puissent être arrangées, rangées et déplacées facilement.
+    image_response_is_correct: la_bonne_chaise_solution.jpg
+    difficulty: '@difficulte_1'
+    number_picarats: '30'
+  enigme_8:
+    name: Dîner aux chandelles
+    statement: Dix bougies sont allumées dans votre salle à manger. Un courant d'air vient éteindre deux d'entre elles. Plus tard, vous vous rendez compte qu'une bougie supplémentaire s'est éteinte. Vous fermez la fenêtre afin de vous assurer qu'aucune autre bougie ne s'éteindra. En supposant que le vent ne vous perturbera plus, combien de bougies va-t-il vous rester ?
+    indice1: Cela peut paraître évident, mais ce ne serait pas une énigme s'il n'y avait pas un petit piège. Relisez l'énoncé attentivement.\n\nOn vous demande combien de bougies il va vous rester.
+    indice2: Le vent éteint deux bougies, puis une autre après. Combien de bougies se sont éteintes ?\n\nLes bougies qui n'ont pas été éteintes vont continuer à se consumer. Que va-t-il leur arriver si elles continuent de brûler ?
+    indice3: On vous demande combien de bougies il va vous rester. Pour cela, il faut que l'objet en question existe encore, n'est-ce pas ?\nEt qu'arrive-t-il aux bougies quand elles brûlent jusqu'au bout ?
+    image_url: diner_aux_chandelles.jpg
+    message_response_is_incorrect: Mauvaise réponse!\r\rReprenez l'énigme depuis le début. il vous faut trouver le nombre de bougies qu'il va vous rester. À vous de deviner ce que cela peut bien vouloir dire...
+    type_enigme: '@type_enigme_1'
+    category: '@categorie_2'
+    message_response_is_correct: Bonne réponse!\r\rLes sept bougies qui sont encore allumées vont se consumer complètement. Les seules bougies qu'il vous restera seront les trois bougies éteintes par le vent.
+    image_response_is_correct: diner_aux_chandelles_solution.jpg
+    difficulty: '@difficulte_1'
+    number_picarats: '10'
+  enigme_9:
+    name: Triangles à l'encre
+    statement: Vous souhaitez tracer la figure ci-dessous, se composant de nombreux petits triangles.\n\nTrempez votre plume dans le pot d'encre <span class="red">une fois</span> et vous aurez tout juste assez d'encre pour tracer la figure de gauche, composée de <span class="red">quatre petits triangles</span>.\n\nSachant cela, <span class="red">combien de fois</span> devrez-vous tremper votre plume dans le pot d'encre afin de pouvoir tracer la figure se trouvant au centre, composée de <span class="red">36 triangles</span>.
+    indice1: Pour tracer la figure de gauche, il vous suffit en réalité de dessiner trois triangles, et non pas quatre. Si vous avez du mal à comprendre pourquoi, n'hésitez pas à tracer la figure sur un papier.\n\nLe triangle du milieu (le numéro 3) se compose en fait des bords des trois autres triangles.
+    indice2: L'énoncé de l'énigme dit que la figure de gauche est composé de quatres triangles. Cependant, on pourrait dire que cette figure se compose de trois triangles pointant vers le haut.\n\nEssayez de penser de cette manière avec la figure qui se trouve au centre. De combien de triangles est-elle vraiment composée ?
+    indice3: Si vous vous contentez de compter le nombre de triangles pointant vers le haut, vous arriverez à un total de 21.\n\nVous pouvez tracer 3 triangles pointant vers le haut à chaque fois que vous trempez votre plume d'encre, donc...
+    image_url: triangles_a_l_encre.jpg
+    message_response_is_incorrect: Mauvaise réponse!\r\rRegarder les deux figures plus attentivement. Faîtes également bien attention aux phrases "juste assez d'encre pour tracer la figure de gauche" et "composée" de 36 triangles".
+    type_enigme: '@type_enigme_1'
+    category: '@categorie_3'
+    message_response_is_correct: Bonne réponse!\r\rVotre premier réflexe a peut-être été de diviser les 36 triangles par quatre. Mais en y regardant de plus près, on se rend compte que chaque groupe de quatre triangles nécessite en fait de ne dessiner que trois triangles.\n\nIl ne reste ensuite qu'à appliquer cette méthode à la figure entière.
+    image_response_is_correct: triangles_a_l_encre_solution.jpg
+    difficulty: '@difficulte_2'
+    number_picarats: '40'
+  enigme_10:
+    name: Tapis vert
+    statement: Trois des quatre images ci-dessous sont de simple rotations du même jeu.\n\nTrouvez l'intrus.
+    indice1: Pour trouver la réponse, il faut savoir où regarder. Vous aurez compris que cela a rapport aux cartes. Il ne peut s'agir du nombre de cartes, car chaque table en contient cinq. Mais alors quoi ?
+    indice2: Chaque carte est marquée d'un symbole et est orientée dans une certaine direction.\n\nEssayez de voir comment chaque carte se déplace entre les différentes tables.
+    indice3: "Toujours coincé ?\n\nCeci devrait vous aider : faîtes bien attention à la manière dont les cartes se superposent."
+    image_url: tapis_vert.jpg
+    message_response_is_incorrect: Mauvaise réponse!\r\rRegardez plus attentivement.
+    type_enigme: '@type_enigme_2'
+    category: '@categorie_4'
+    message_response_is_correct: Bonne réponse!\r\rLe principe de cette énigme est très simple.\nLe plus difficile est de cerner les petites différences entre les images.
+    image_response_is_correct: tapis_vert_solution.jpg
+    difficulty: '@difficulte_1'
+    number_picarats: '30'
+
 
 App\Entity\SolutionAChoix:
   solutionachoix_1:
@@ -35,3 +162,86 @@ App\Entity\SolutionAChoix:
     value: D
     position: '4'
     is_valid: false
+  solutionachoix_5:
+    enigme: '@enigme_7'
+    value: A
+    position: '1'
+    is_valid: false
+  solutionachoix_6:
+    enigme: '@enigme_7'
+    value: B
+    position: '2'
+    is_valid: false
+  solutionachoix_7:
+    enigme: '@enigme_7'
+    value: C
+    position: '3'
+    is_valid: false
+  solutionachoix_8:
+    enigme: '@enigme_7'
+    value: D
+    position: '4'
+    is_valid: false
+  solutionachoix_9:
+    enigme: '@enigme_7'
+    value: E
+    position: '5'
+    is_valid: true
+  solutionachoix_10:
+    enigme: '@enigme_10'
+    value: A
+    position: '1'
+    is_valid: false
+  solutionachoix_11:
+    enigme: '@enigme_10'
+    value: B
+    position: '2'
+    is_valid: false
+  solutionachoix_12:
+    enigme: '@enigme_10'
+    value: C
+    position: '3'
+    is_valid: false
+  solutionachoix_13:
+    enigme: '@enigme_10'
+    value: D
+    position: '4'
+    is_valid: true
+
+App\Entity\SolutionUnique:
+  solutionunique_1:
+    enigme: '@enigme_2'
+    value: '10'
+  solutionunique_2:
+    enigme: '@enigme_3'
+    value: '50'
+  solutionunique_3:
+    enigme: '@enigme_5'
+    value: '10'
+  solutionunique_4:
+    enigme: '@enigme_6'
+    value: '13'
+  solutionunique_5:
+    enigme: '@enigme_8'
+    value: '3'
+  solutionunique_6:
+    enigme: '@enigme_9'
+    value: '7'
+
+App\Entity\SolutionMultiple:
+  solutionmultiple_1:
+    enigme: '@enigme_4'
+    value: '2'
+    position: '1'
+  solutionmultiple_2:
+    enigme: '@enigme_4'
+    value: '3'
+    position: '2'
+  solutionmultiple_3:
+    enigme: '@enigme_4'
+    value: '6'
+    position: '3'
+  solutionmultiple_4:
+    enigme: '@enigme_4'
+    value: '8'
+    position: '4'
