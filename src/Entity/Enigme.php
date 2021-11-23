@@ -52,7 +52,7 @@ class Enigme
     private $image_url;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", options={"default":"Mauvaise réponse!\r\rRegardez plus attentivement."  })
      */
     private $message_response_is_incorrect;
 
