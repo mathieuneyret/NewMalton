@@ -13,6 +13,8 @@ App\Entity\Categorie:
     name: Logique
   categorie_3:
     name: Réflexion
+  categorie_4:
+    name: Différence images
 
 App\Entity\Difficulte:
   difficulte_1:
