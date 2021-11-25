@@ -2,10 +2,9 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Users;
-use App\Entity\Enigme;
 use App\Entity\Categorie;
 use App\Entity\Demande;
+use App\Entity\Enigme;
 use App\Entity\EnigmeFavorite;
 use App\Entity\EnigmeResolue;
 use App\Entity\Note;

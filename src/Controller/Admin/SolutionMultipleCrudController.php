@@ -24,5 +24,4 @@ class SolutionMultipleCrudController extends AbstractCrudController
             TextField::new('image')
         ];
     }
-    
 }

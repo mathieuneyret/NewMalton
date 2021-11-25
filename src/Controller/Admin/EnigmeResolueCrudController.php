@@ -21,5 +21,4 @@ class EnigmeResolueCrudController extends AbstractCrudController
             AssociationField::new('user')
         ];
     }
-    
 }

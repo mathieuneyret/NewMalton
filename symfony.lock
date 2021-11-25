@@ -669,6 +669,9 @@
     "symfonycasts/verify-email-bundle": {
         "version": "v1.6.0"
     },
+    "symplify/easy-coding-standard": {
+        "version": "9.4.70"
+    },
     "theofidry/alice-data-fixtures": {
         "version": "1.4",
         "recipe": {
