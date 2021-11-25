@@ -13,6 +13,7 @@ use App\Entity\SolutionAChoix;
 use App\Entity\SolutionMultiple;
 use App\Entity\SolutionUnique;
 use App\Entity\TypeEnigme;
+use App\Entity\Difficulte;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -41,6 +42,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Users', 'fas fa-user', Users::class);
         yield MenuItem::linkToCrud('Enigme', 'fas fa-mask', Enigme::class);
         yield MenuItem::linkToCrud('Categorie', 'fas fa-list', Categorie::class);
+        yield MenuItem::linkToCrud('Difficulté', 'fas fa-tachometer-alt', Difficulte::class);
         yield MenuItem::linkToCrud('Demande', 'fab fa-laravel', Demande::class);
         yield MenuItem::linkToCrud('Enigme Favorite', 'fas fa-heart', EnigmeFavorite::class);
         yield MenuItem::linkToCrud('Enigme Résolue', 'fas fa-check-circle', EnigmeResolue::class);

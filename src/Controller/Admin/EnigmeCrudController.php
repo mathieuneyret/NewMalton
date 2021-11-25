@@ -24,11 +24,14 @@ class EnigmeCrudController extends AbstractCrudController
             TextEditorField::new('statement'),
             AssociationField::new('category'),
             AssociationField::new('type_enigme'),
-            NumberField::new('difficulty'),
+            AssociationField::new('difficulty'),
             TextEditorField::new('indice1'),
             TextEditorField::new('indice2'),
             TextEditorField::new('indice3'),
             TextField::new('image_url'),
+            TextField::new('number_picarats'),
+            TextField::new('message_response_is_correct'),
+            TextField::new('image_response_is_correct'),
             TextEditorField::new('message_response_is_incorrect')
         ];
     }
