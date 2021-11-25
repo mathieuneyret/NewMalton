@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\SolutionAChoixRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ApiResource()
@@ -21,6 +22,7 @@ class SolutionAChoix
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $value;
 
@@ -32,16 +34,19 @@ class SolutionAChoix
 
     /**
      * @ORM\Column(type="string", length=2)
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $position;
 
     /**
      * @ORM\Column(type="boolean")
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $is_valid;
 
     /**
      * @ORM\Column(type="string", nullable=true, length=255)
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $image;
 
