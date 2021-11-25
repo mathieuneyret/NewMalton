@@ -3,13 +3,24 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Repository\EnigmeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     normalizationContext={"groups"={"enigme:read"}},
+ *     denormalizationContext={"groups"={"enigme:write"}}
+ * )
+ * @ApiFilter(SearchFilter::class, properties={
+ *     "difficulty": "exact",
+ *     "category": "exact",
+ *     "type_enigme": "exact",
+ * })
  * @ORM\Entity(repositoryClass=EnigmeRepository::class)
  */
 class Enigme
@@ -23,99 +34,118 @@ class Enigme
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $statement;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $indice1;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $indice2;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $indice3;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $image_url;
 
     /**
      * @ORM\Column(type="text", options={"default":"Mauvaise réponse!\r\rRegardez plus attentivement."  })
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $message_response_is_incorrect;
 
     /**
      * @ORM\ManyToOne(targetEntity=TypeEnigme::class, inversedBy="enigmes")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $type_enigme;
 
     /**
      * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="enigmes")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $category;
 
     /**
      * @ORM\OneToMany(targetEntity=SolutionMultiple::class, mappedBy="enigme")
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $solutionMultiples;
 
     /**
      * @ORM\OneToMany(targetEntity=SolutionUnique::class, mappedBy="enigme")
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $solutionUniques;
 
     /**
      * @ORM\OneToMany(targetEntity=SolutionAChoix::class, mappedBy="enigme")
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $solutionAChoixes;
 
     /**
      * @ORM\OneToMany(targetEntity=Note::class, mappedBy="enigme")
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $notes;
 
     /**
      * @ORM\OneToMany(targetEntity=EnigmeResolue::class, mappedBy="enigme")
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $enigmeResolues;
 
     /**
      * @ORM\OneToMany(targetEntity=EnigmeFavorite::class, mappedBy="enigme")
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $enigmeFavorites;
 
     /**
      * @ORM\ManyToOne(targetEntity=Difficulte::class)
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $difficulty;
 
     /**
      * @ORM\Column(type="string", length=3)
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $number_picarats;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $message_response_is_correct;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $image_response_is_correct;
 

@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\SolutionUniqueRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ApiResource()
@@ -21,6 +22,7 @@ class SolutionUnique
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Groups({"enigme:read", "enigme:write"})
      */
     private $value;
 
