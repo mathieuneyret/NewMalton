@@ -2,10 +2,9 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Users;
-use App\Entity\Enigme;
 use App\Entity\Categorie;
 use App\Entity\Demande;
+use App\Entity\Enigme;
 use App\Entity\EnigmeFavorite;
 use App\Entity\EnigmeResolue;
 use App\Entity\Note;
@@ -13,6 +12,7 @@ use App\Entity\SolutionAChoix;
 use App\Entity\SolutionMultiple;
 use App\Entity\SolutionUnique;
 use App\Entity\TypeEnigme;
+use App\Entity\Users;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;

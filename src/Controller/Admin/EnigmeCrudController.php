@@ -32,5 +32,4 @@ class EnigmeCrudController extends AbstractCrudController
             TextEditorField::new('message_response_is_incorrect')
         ];
     }
-    
 }
