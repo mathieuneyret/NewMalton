@@ -29,7 +29,7 @@ class Enigme
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"enigme:read", "enigme:write"})
+     * @Groups({"enigme:read"})
      */
     private $id;
 
