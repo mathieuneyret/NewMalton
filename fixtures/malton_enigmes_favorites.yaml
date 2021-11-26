@@ -1,3 +1,4 @@
 App\Entity\EnigmeFavorite:
   enigmefavorite_{1..30}:
-    enigme: '@enigme_<randElement(
+    user: '@users_<numberBetween(1, 4)>'
+    enigme: '@enigme_<numberBetween(1, 10)>'

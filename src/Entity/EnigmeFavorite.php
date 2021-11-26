@@ -30,17 +30,19 @@ class EnigmeFavorite
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Enigme::class, inversedBy="enigmeFavorites")
+     * @ORM\ManyToOne(targetEntity=Enigme::class)
      * @ORM\JoinColumn(nullable=false)
      * @Groups({"enigme_favorite:read", "enigme_favorite:write"})
      */
     private $enigme;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Users::class, inversedBy="enigmeFavorites")
+     * @ORM\ManyToOne(targetEntity=Users::class)
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"enigme_favorite:read", "enigme_favorite:write"})
      */
     private $user;
+
 
     public function getId(): ?int
     {
@@ -67,6 +69,18 @@ class EnigmeFavorite
     public function setUser(?Users $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getUsersADelete(): ?Users
+    {
+        return $this->users_a_delete;
+    }
+
+    public function setUsersADelete(?Users $users_a_delete): self
+    {
+        $this->users_a_delete = $users_a_delete;
 
         return $this;
     }

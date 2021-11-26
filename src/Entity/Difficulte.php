@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\DifficulteRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ApiResource()
@@ -21,6 +22,7 @@ class Difficulte
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"enigme:read", "enigme_favorite:read"})
      */
     private $difficulty;
 

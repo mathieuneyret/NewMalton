@@ -35,13 +35,13 @@ class Enigme
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"enigme:read", "enigme:write"})
+     * @Groups({"enigme:read", "enigme:write", "enigme_favorite:read"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
-     * @Groups({"enigme:read", "enigme:write"})
+     * @Groups({"enigme:read", "enigme:write", "enigme_favorite:read"})
      */
     private $statement;
 
@@ -65,7 +65,7 @@ class Enigme
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"enigme:read", "enigme:write"})
+     * @Groups({"enigme:read", "enigme:write", "enigme_favorite:read"})
      */
     private $image_url;
 
@@ -107,28 +107,11 @@ class Enigme
      */
     private $solutionAChoixes;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Note::class, mappedBy="enigme")
-     * @Groups({"enigme:read", "enigme:write"})
-     */
-    private $notes;
-
-    /**
-     * @ORM\OneToMany(targetEntity=EnigmeResolue::class, mappedBy="enigme")
-     * @Groups({"enigme:read", "enigme:write"})
-     */
-    private $enigmeResolues;
-
-    /**
-     * @ORM\OneToMany(targetEntity=EnigmeFavorite::class, mappedBy="enigme")
-     * @Groups({"enigme:read", "enigme:write"})
-     */
-    private $enigmeFavorites;
 
     /**
      * @ORM\ManyToOne(targetEntity=Difficulte::class)
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"enigme:read", "enigme:write"})
+     * @Groups({"enigme:read", "enigme:write", "enigme_favorite:read"})
      */
     private $difficulty;
 
@@ -155,9 +138,6 @@ class Enigme
         $this->solutionMultiples = new ArrayCollection();
         $this->solutionUniques = new ArrayCollection();
         $this->solutionAChoixes = new ArrayCollection();
-        $this->notes = new ArrayCollection();
-        $this->enigmeResolues = new ArrayCollection();
-        $this->enigmeFavorites = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -357,96 +337,6 @@ class Enigme
             // set the owning side to null (unless already changed)
             if ($solutionAChoix->getEnigme() === $this) {
                 $solutionAChoix->setEnigme(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Note[]
-     */
-    public function getNotes(): Collection
-    {
-        return $this->notes;
-    }
-
-    public function addNote(Note $note): self
-    {
-        if (!$this->notes->contains($note)) {
-            $this->notes[] = $note;
-            $note->setEnigme($this);
-        }
-
-        return $this;
-    }
-
-    public function removeNote(Note $note): self
-    {
-        if ($this->notes->removeElement($note)) {
-            // set the owning side to null (unless already changed)
-            if ($note->getEnigme() === $this) {
-                $note->setEnigme(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|EnigmeResolue[]
-     */
-    public function getEnigmeResolues(): Collection
-    {
-        return $this->enigmeResolues;
-    }
-
-    public function addEnigmeResolue(EnigmeResolue $enigmeResolue): self
-    {
-        if (!$this->enigmeResolues->contains($enigmeResolue)) {
-            $this->enigmeResolues[] = $enigmeResolue;
-            $enigmeResolue->setEnigme($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEnigmeResolue(EnigmeResolue $enigmeResolue): self
-    {
-        if ($this->enigmeResolues->removeElement($enigmeResolue)) {
-            // set the owning side to null (unless already changed)
-            if ($enigmeResolue->getEnigme() === $this) {
-                $enigmeResolue->setEnigme(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|EnigmeFavorite[]
-     */
-    public function getEnigmeFavorites(): Collection
-    {
-        return $this->enigmeFavorites;
-    }
-
-    public function addEnigmeFavorite(EnigmeFavorite $enigmeFavorite): self
-    {
-        if (!$this->enigmeFavorites->contains($enigmeFavorite)) {
-            $this->enigmeFavorites[] = $enigmeFavorite;
-            $enigmeFavorite->setEnigme($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEnigmeFavorite(EnigmeFavorite $enigmeFavorite): self
-    {
-        if ($this->enigmeFavorites->removeElement($enigmeFavorite)) {
-            // set the owning side to null (unless already changed)
-            if ($enigmeFavorite->getEnigme() === $this) {
-                $enigmeFavorite->setEnigme(null);
             }
         }
 
