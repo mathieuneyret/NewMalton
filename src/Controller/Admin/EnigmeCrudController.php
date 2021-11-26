@@ -16,12 +16,13 @@ class EnigmeCrudController extends AbstractCrudController
         return Enigme::class;
     }
 
-    
+
     public function configureFields(string $pageName): iterable
     {
         return [
             TextField::new('name'),
             TextEditorField::new('statement'),
+            TextEditorField::new('brief_description'),
             AssociationField::new('category'),
             AssociationField::new('type_enigme'),
             AssociationField::new('difficulty'),

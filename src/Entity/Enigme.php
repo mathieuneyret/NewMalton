@@ -29,7 +29,7 @@ class Enigme
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"enigme:read"})
+     * @Groups({"enigme:read", "enigme_favorite:read"})
      */
     private $id;
 
@@ -132,6 +132,12 @@ class Enigme
      * @Groups({"enigme:read", "enigme:write"})
      */
     private $image_response_is_correct;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Groups({"enigme:read", "enigme:write", "enigme_favorite:read"})
+     */
+    private $brief_description;
 
     public function __construct()
     {
@@ -394,5 +400,21 @@ class Enigme
     public function __toString()
     {
         return $this->getName();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBriefDescription()
+    {
+        return $this->brief_description;
+    }
+
+    /**
+     * @param mixed $brief_description
+     */
+    public function setBriefDescription($brief_description): void
+    {
+        $this->brief_description = $brief_description;
     }
 }
