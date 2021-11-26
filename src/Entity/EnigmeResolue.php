@@ -26,7 +26,7 @@ class EnigmeResolue
     private $enigme;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Users::class, inversedBy="enigmeResolues")
+     * @ORM\ManyToOne(targetEntity=Users::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
