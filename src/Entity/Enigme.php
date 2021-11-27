@@ -11,6 +11,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 use App\Controller\EnigmeVerificationReponsesController;
+use App\Controller\EnigmesMieuxNoteesController;
 
 /**
  * @ApiResource(
@@ -26,6 +27,13 @@ use App\Controller\EnigmeVerificationReponsesController;
  *              "method"="GET",
  *              "path"="/check_reponses_enigmes/{idEnigme}/{typeSolution}/{answer}",
  *              "controller"=EnigmeVerificationReponsesController::class,
+ *              "deserialize"=false,
+ *              "read"=false,
+ *          },
+ *          "get_enigmes_mieux_notees"={
+ *              "method"="GET",
+ *              "path"="/enigmes_mieux_notees",
+ *              "controller"=EnigmesMieuxNoteesController::class,
  *              "deserialize"=false,
  *              "read"=false,
  *          }
