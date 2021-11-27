@@ -10,11 +10,26 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use App\Controller\EnigmeVerificationReponsesController;
 
 /**
  * @ApiResource(
  *     normalizationContext={"groups"={"enigme:read"}},
- *     denormalizationContext={"groups"={"enigme:write"}}
+ *     denormalizationContext={"groups"={"enigme:write"}},
+ *     itemOperations={
+ *          "get",
+ *          "post",
+ *          "put",
+ *          "patch",
+ *          "delete",
+ *          "valider_reponses_enigmes"={
+ *              "method"="GET",
+ *              "path"="/check_reponses_enigmes/{idEnigme}/{typeSolution}/{answer}",
+ *              "controller"=EnigmeVerificationReponsesController::class,
+ *              "deserialize"=false,
+ *              "read"=false,
+ *          }
+ *     }
  * )
  * @ApiFilter(SearchFilter::class, properties={
  *     "difficulty": "exact",
