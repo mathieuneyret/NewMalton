@@ -25,7 +25,7 @@ class NoteRepository extends ServiceEntityRepository
             ->select('IDENTITY(n.enigme)')
             ->addGroupBy('n.enigme')
             ->orderBy('AVG(n.note)', 'DESC')
-            ->setMax(10)
+            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
