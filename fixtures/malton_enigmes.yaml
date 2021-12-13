@@ -13,6 +13,7 @@ App\Entity\Enigme:
     image_response_is_correct: hauts_de_forme_solution.png
     difficulty: '@difficulte_1'
     number_picarats: '10'
+    brief_description: ''
   enigme_2:
     name: Contre-la-montre
     statement: Une horloge à aiguilles standard est composée d'une aiguille pour les heures et d'une aiguille plus longue et plus rapide pour les minutes.\r\rEn supposant que cette horloge soit parfaitement à l'heure, combien de fois l'aiguille des minutes dépasse-t-elle l'aiguille des heures entre midi et minuit ?
@@ -26,7 +27,8 @@ App\Entity\Enigme:
     message_response_is_correct: Bonne réponse!\r\rL'aiguille des minutes dépasse l'aiguille des heures dix fois. En y réfléchissant bien, la réponse est évidente, mais il est possible que vous vous soyez laissé piéger par la question.\n\nL'aiguille des minutes dépasse l'aiguille des heures une fois par heure, mais étant donné qu'elles commencent et terminent le problème l'une sur l'autre, on ne peut pas réellement considérer que la petite aiguille a été dépassée.
     image_response_is_correct: contre_la_montre_solution.jpg
     difficulty: '@difficulte_2'
-    number_picarats: 50'
+    number_picarats: '50'
+    brief_description: ''
   enigme_3:
     name: Ensemencement
     statement: Antoine et Jean-Thomas ont été embauchés par un fermer pour semer des graindes. <span class="red">Un terrain de 4 hectares a été séparé en deux</span> afin qu'ils puissent travailler séparément sur leur moitié.\n\nJean-Thomas commence à l'est, tandis qu'Antoine comment à l'ouest.\n\nAntoine laboure <span class="red">1 hectare en 20 minutes</span>. Cela en prend <span class="red">40</span> à Jean-Thomas, mais il <span class="red">sème les graines trois fois plus vite qu'Antoine</span>.\n\nSachant que la rémunération pour l'ensemencement de la totalité du terrain a été établie à 100 euros, combien Jean-Thomas doit-il recevoir ?
@@ -41,6 +43,7 @@ App\Entity\Enigme:
     image_response_is_correct: ensemencement_solution.jpg
     difficulty: '@difficulte_1'
     number_picarats: '20'
+    brief_description: ''
   enigme_4:
     name: Équations mystères
     statement: A, B, C et D sont des nombres à un chiffre.\nLes équations suivantes sont toutes vraies.\n\nA + C = D\nA x B = C\nC - B = B\nA x 4 = D\n\nTrouvez les chiffres représentés par chaque lettre. La réponse devra comporter les quatre chiffres dans l'ordre A, B, C et D.
@@ -55,6 +58,7 @@ App\Entity\Enigme:
     image_response_is_correct: equations_mysteres_solution.jpg
     difficulty: '@difficulte_1'
     number_picarats: '10'
+    brief_description: ''
   enigme_5:
     name: Un peu de géométrie !
     statement: Comme le montre le schéma ci-dessous, vous disposez d'un quart de cercle. À l'intérieur se trouve un rectangle ABCD dont le point D se trouve sur le cercle. Le point B est de plus le centre du cercle.\n\nQuelle est la longueur du segment AC ?
@@ -69,6 +73,7 @@ App\Entity\Enigme:
     image_response_is_correct: un_peu_de_geometrie_solution.jpg
     difficulty: '@difficulte_1'
     number_picarats: '20'
+    brief_description: ''
   enigme_6:
     name: Naufrage
     statement: Au secours ! Quinze personnes sont piégées sur un navire en train de sombrer. Le bateau va couler dans très exactement vingt minutes.\n\nLeur seule change de survie est le canot de sauvetage qui ne peut prendre que cinq personnes à sont bord. Histoire d'arranger les choses, les eaux sont infestées par de dangereux requins mangeurs d'hommes. Nager est donc hors de question !\n\nUn aller-retour en direction de l'île la plus proche prend environ neuf minutes. Combien de personnes pourront être sauvées ?
@@ -83,6 +88,7 @@ App\Entity\Enigme:
     image_response_is_correct: naufrage_solution.jpg
     difficulty: '@difficulte_1'
     number_picarats: '30'
+    brief_description: ''
   enigme_7:
     name: La bonne chaise
     statement: Une nouvelle salle des fêtes vient d'être construire dans votre ville. Elle sera capable d'accueillir de nombreux évènements, allant des concerts aux conventions, en passant par les banquets, les bals, etc.\n\nMaintenant que la salle est terminée, il est temps de commander les chaises. Parmi ces cinq modèles que l'on vous suggère, un seul <span class="red">correspond tout à fait</span> aux exigences de cette nouvelle salle.\n\nDe quelle chaise s'agit-il ?
@@ -97,6 +103,7 @@ App\Entity\Enigme:
     image_response_is_correct: la_bonne_chaise_solution.jpg
     difficulty: '@difficulte_1'
     number_picarats: '30'
+    brief_description: ''
   enigme_8:
     name: Dîner aux chandelles
     statement: Dix bougies sont allumées dans votre salle à manger. Un courant d'air vient éteindre deux d'entre elles. Plus tard, vous vous rendez compte qu'une bougie supplémentaire s'est éteinte. Vous fermez la fenêtre afin de vous assurer qu'aucune autre bougie ne s'éteindra. En supposant que le vent ne vous perturbera plus, combien de bougies va-t-il vous rester ?
@@ -111,6 +118,7 @@ App\Entity\Enigme:
     image_response_is_correct: diner_aux_chandelles_solution.jpg
     difficulty: '@difficulte_1'
     number_picarats: '10'
+    brief_description: ''
   enigme_9:
     name: Triangles à l'encre
     statement: Vous souhaitez tracer la figure ci-dessous, se composant de nombreux petits triangles.\n\nTrempez votre plume dans le pot d'encre <span class="red">une fois</span> et vous aurez tout juste assez d'encre pour tracer la figure de gauche, composée de <span class="red">quatre petits triangles</span>.\n\nSachant cela, <span class="red">combien de fois</span> devrez-vous tremper votre plume dans le pot d'encre afin de pouvoir tracer la figure se trouvant au centre, composée de <span class="red">36 triangles</span>.
@@ -125,6 +133,7 @@ App\Entity\Enigme:
     image_response_is_correct: triangles_a_l_encre_solution.jpg
     difficulty: '@difficulte_2'
     number_picarats: '40'
+    brief_description: ''
   enigme_10:
     name: Tapis vert
     statement: Trois des quatre images ci-dessous sont de simple rotations du même jeu.\n\nTrouvez l'intrus.
@@ -139,6 +148,7 @@ App\Entity\Enigme:
     image_response_is_correct: tapis_vert_solution.jpg
     difficulty: '@difficulte_1'
     number_picarats: '30'
+    brief_description: ''
 
 
 App\Entity\SolutionAChoix:
