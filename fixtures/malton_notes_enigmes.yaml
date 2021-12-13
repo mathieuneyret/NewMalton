@@ -1,0 +1,7 @@
+App\Entity\Note:
+  note_{1..50}:
+    joueur: '@users_<numberBetween(1, 4)>'
+    enigme: '@enigme_<numberBetween(1, 10)>'
+    note: '<numberBetween(1, 5)>'
+    comment: 'Lorem ipsum'
+    is_valid: true
