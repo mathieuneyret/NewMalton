@@ -9,9 +9,15 @@ use App\Repository\SolutionAChoixRepository;
 use App\Repository\SolutionMultipleRepository;
 use App\Repository\SolutionUniqueRepository;
 use App\Entity\Enigme;
+use App\Repository\EnigmeRepository;
 
 class EnigmeVerificationReponses
 {
+    /**
+     * @var EnigmeRepository
+     */
+    private $enigmeRepository;
+
     /**
      * @var SolutionUniqueRepository
      */
@@ -28,23 +34,30 @@ class EnigmeVerificationReponses
     private $solutionMultipleRepository;
 
     public function __construct(
+        EnigmeRepository $enigmeRepository,
         SolutionUniqueRepository $solutionUniqueRepository,
         SolutionAChoixRepository $solutionAChoixRepository,
         SolutionMultipleRepository $solutionMultipleRepository
     ){
+        $this->enigmeRepository = $enigmeRepository;
         $this->solutionUniqueRepository = $solutionUniqueRepository;
         $this->solutionAChoixRepository = $solutionAChoixRepository;
         $this->solutionMultipleRepository = $solutionMultipleRepository;
     }
 
-    public function getVerificationSolutionUniqueEnigme(Enigme $enigme, string $answer): bool
+    public function getVerificationSolutionUniqueEnigme(Enigme $enigme, string $answer)
     {
         $solutionUnique = $this->solutionUniqueRepository->findOneBy([
             'enigme' => $enigme,
             'value' => $answer
         ]);
 
-        return $solutionUnique instanceof SolutionUnique;
+        if ($solutionUnique instanceof SolutionUnique) {
+            $enigme = $this->enigmeRepository->getSolutionUnique($enigme->getId());
+            return $enigme;
+        }
+        
+        return $this->enigmeRepository->getMessageResponseIsIncorrect($enigme->getId());
     }
 
     public function getVerificationSolutionAChoixEnigme(Enigme $enigme, string $answer): bool
