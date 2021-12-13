@@ -26,7 +26,7 @@ class EnigmeRepository extends ServiceEntityRepository
             ->where('e.id = :id')
             ->setParameter('id', $id)
             ->getQuery()
-            ->getSingleResult()
+            ->getResult()
         ;
     }
 
@@ -37,7 +37,7 @@ class EnigmeRepository extends ServiceEntityRepository
             ->where('e.id = :id')
             ->setParameter('id', $id)
             ->getQuery()
-            ->getSingleResult()
+            ->getResult()
         ;
     }
 
