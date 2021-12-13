@@ -19,7 +19,6 @@ use App\Controller\EnigmesMieuxNoteesController;
  *     denormalizationContext={"groups"={"enigme:write"}},
  *     itemOperations={
  *          "get",
- *          "post",
  *          "put",
  *          "patch",
  *          "delete",
