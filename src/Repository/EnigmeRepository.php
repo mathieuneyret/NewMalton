@@ -18,6 +18,28 @@ class EnigmeRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Enigme::class);
     }
+    
+    public function getSolutionUnique(int $id)
+    {
+        return $this->createQueryBuilder('e')
+            ->select('e.message_response_is_correct, e.image_response_is_correct')
+            ->where('e.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getSingleResult()
+        ;
+    }
+
+    public function getMessageResponseIsIncorrect(int $id)
+    {
+        return $this->createQueryBuilder('e')
+            ->select('e.message_response_is_incorrect')
+            ->where('e.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getSingleResult()
+        ;
+    }
 
     // /**
     //  * @return Enigme[] Returns an array of Enigme objects

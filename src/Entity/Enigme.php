@@ -19,7 +19,6 @@ use App\Controller\EnigmesMieuxNoteesController;
  *     denormalizationContext={"groups"={"enigme:write"}},
  *     itemOperations={
  *          "get",
- *          "post",
  *          "put",
  *          "patch",
  *          "delete",
@@ -94,7 +93,7 @@ class Enigme
 
     /**
      * @ORM\Column(type="text", options={"default":"Mauvaise réponse!\r\rRegardez plus attentivement."  })
-     * @Groups({"enigme:read", "enigme:write"})
+     * @Groups({"enigme:write"})
      */
     private $message_response_is_incorrect;
 
@@ -146,13 +145,13 @@ class Enigme
 
     /**
      * @ORM\Column(type="text")
-     * @Groups({"enigme:read", "enigme:write"})
+     * @Groups({"enigme:write"})
      */
     private $message_response_is_correct;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"enigme:read", "enigme:write"})
+     * @Groups({"enigme:write"})
      */
     private $image_response_is_correct;
 
