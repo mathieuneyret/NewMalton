@@ -37,7 +37,7 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
-        if ($this->getUser()) {
+        if ($this->getUser() && in_array('ROLE_ADMIN', $this->getUser()->getRoles(), true)) {
             return parent::index();
         }
         
