@@ -17,9 +17,10 @@ class SecurityController extends AbstractController
     public function login(IriConverterInterface $iriConverter): JsonResponse
     {
         if (!$this->isGranted('IS_AUTHENTICATED_FULLY')) {
-            return $this->json([
-                'error' => 'Invalid login request',
-            ], 400);
+            return new JsonResponse(
+                ['error' => 'Invalid login request'],
+                400
+            );
         }
 
         return new JsonResponse(
