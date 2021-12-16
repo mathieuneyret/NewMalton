@@ -17,35 +17,46 @@ use App\Entity\Difficulte;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
-use Symfony\Component\Security\Http\Authenticator\Passport\Badge\CsrfTokenBadge;
-use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
-use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordCredentials;
-use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class DashboardController extends AbstractDashboardController
 {
+    private AuthenticationUtils $authenticationUtils;
+
+    public function __construct(
+        AuthenticationUtils $authenticationUtils
+    ){
+        $this->authenticationUtils = $authenticationUtils;
+    }
+
     /**
-     * @Route("/admin", name="admin")
+     * @Route("/")
      */
     public function index(): Response
     {
-        if ($_REQUEST) {
-            //@todo post request to app_login here
-            $response = $this->redirectToRoute('app_login', [
-                'email' => $_REQUEST['email'],
-                'password' => $_REQUEST['password']
-            ]);
-            dd($response);
+        if ($this->getUser()) {
             return parent::index();
         }
+        
+        return new RedirectResponse('/admin');
+    }
 
+    /**
+     * @Route("/admin", name="admin")
+     */
+    public function admin(): Response
+    {
         if (!$this->getUser()) {
-            return $this->render('security/login.html.twig');
+            $error = $this->authenticationUtils->getLastAuthenticationError();
+            return $this->render('security/login.html.twig', [
+                'error' => $error
+            ]);
         }
+        
+        return parent::index();
     }
 
     public function configureDashboard(): Dashboard

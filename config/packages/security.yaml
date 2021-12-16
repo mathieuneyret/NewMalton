@@ -20,6 +20,9 @@ security:
         main:
             lazy: true
             provider: app_user_provider
+            form_login:
+                login_path: admin
+                check_path: admin
             #custom_authenticator: App\Security\UsersAuthenticator
             json_login:
                 check_path: app_login
