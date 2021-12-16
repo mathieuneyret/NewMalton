@@ -19,6 +19,12 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
+use Symfony\Component\Security\Http\Authenticator\Passport\Badge\CsrfTokenBadge;
+use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
+use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordCredentials;
+use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -27,7 +33,19 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
-        return parent::index();
+        if ($_REQUEST) {
+            //@todo post request to app_login here
+            $response = $this->redirectToRoute('app_login', [
+                'email' => $_REQUEST['email'],
+                'password' => $_REQUEST['password']
+            ]);
+            dd($response);
+            return parent::index();
+        }
+
+        if (!$this->getUser()) {
+            return $this->render('security/login.html.twig');
+        }
     }
 
     public function configureDashboard(): Dashboard
