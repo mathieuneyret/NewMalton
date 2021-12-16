@@ -1,0 +1,21 @@
+.form-group {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.title-password {
+    margin-top: 2%;
+}
+
+.btn.btn-lg.btn-primary {
+    margin-top: 2%;
+}
+
+.malton-theme {
+    background: #178E94 !important;
+    color: #fff;
+    font-weight: 700;
+    padding: 5px 14px;
+    cursor: pointer;
+    border: 1px solid #178E94 !important;
+}

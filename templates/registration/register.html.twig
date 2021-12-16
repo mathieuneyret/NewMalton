@@ -7,17 +7,27 @@
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+    {{ form_start(registrationForm, {attr:{'style': 'margin-top: 50px;'}}) }}
+    <div class="form-group">
+        <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-        {{ form_row(registrationForm.username) }}
-        {{ form_row(registrationForm.description) }}
+        <label for="inputEmail">Email</label>
+        {{ form_widget(registrationForm.email, {attr:{'class': 'form-control'}}) }}
+        <label class="title-password" for="inputPassword">Password</label>
+        {{ form_widget(registrationForm.plainPassword, {attr:{'class': 'form-control'}}) }}
+        <label class="title-username" for="inputUsername">Username</label>
+        {{ form_widget(registrationForm.username, {attr:{'class': 'form-control'}}) }}
 
-        <button type="submit" class="btn">Register</button>
+        <label class="agree-terms" for="inputTerms">Agree terms</label>
+        {{ form_widget(registrationForm.agreeTerms) }}
+
+        <br>
+
+        <button class="btn btn-lg btn-primary deep-theme" type="submit">
+            Inscription
+        </button>
+
+    </div>
     {{ form_end(registrationForm) }}
+
 {% endblock %}

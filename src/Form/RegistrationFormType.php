@@ -44,7 +44,6 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('username')
-            ->add('description')
         ;
     }
 
