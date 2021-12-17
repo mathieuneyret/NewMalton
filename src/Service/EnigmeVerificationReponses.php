@@ -81,7 +81,6 @@ class EnigmeVerificationReponses
         $answers = json_decode($jsonAnswers);
         
         foreach  ($answers as $position => $answer) {
-            var_dump($answer);
             $solutionMultiple = $this->solutionMultipleRepository->findOneBy([
                 'enigme' => $enigme,
                 'value' => $answer,
