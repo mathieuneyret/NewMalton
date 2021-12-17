@@ -53,30 +53,47 @@ class EnigmeVerificationReponses
         ]);
 
         if ($solutionUnique instanceof SolutionUnique) {
-            $enigme = $this->enigmeRepository->getSolutionUnique($enigme->getId());
+            $enigme = $this->enigmeRepository->getMessageAndImageResponseCorrect($enigme->getId());
             return $enigme;
         }
         
         return $this->enigmeRepository->getMessageResponseIsIncorrect($enigme->getId());
     }
 
-    public function getVerificationSolutionAChoixEnigme(Enigme $enigme, string $answer): bool
+    public function getVerificationSolutionAChoixEnigme(Enigme $enigme, string $answer)
     {
-        $solutionUnique = $this->solutionAChoixRepository->findOneBy([
+        $solutionAChoix = $this->solutionAChoixRepository->findOneBy([
             'enigme' => $enigme,
             'value' => $answer,
             'is_valid' => true,
         ]);
 
-        return $solutionUnique instanceof SolutionAChoix;
+        if ($solutionAChoix instanceof SolutionAChoix) {
+            $enigme = $this->enigmeRepository->getMessageAndImageResponseCorrect($enigme->getId());
+            return $enigme;
+        }
+
+        return $this->enigmeRepository->getMessageResponseIsIncorrect($enigme->getId());
     }
 
-    public function getVerificationSolutionMultipleEnigme(Enigme $enigme)
+    public function getVerificationSolutionMultipleEnigme(Enigme $enigme, string $jsonAnswers)
     {
-        /*$solutionUnique = $this->solutionMultipleRepository->findOneBy([
-            'enigme' => $enigme,
-        ]);
+        $answers = json_decode($jsonAnswers);
+        
+        foreach  ($answers as $position => $answer) {
+            var_dump($answer);
+            $solutionMultiple = $this->solutionMultipleRepository->findOneBy([
+                'enigme' => $enigme,
+                'value' => $answer,
+                'position' => $position,
+            ]);
 
-        return $solutionUnique instanceof SolutionMultiple;*/
+            if (!$solutionMultiple instanceof SolutionMultiple) {
+                return $this->enigmeRepository->getMessageResponseIsIncorrect($enigme->getId());
+            }
+        }
+
+        $enigme = $this->enigmeRepository->getMessageAndImageResponseCorrect($enigme->getId());
+        return $enigme;
     }
 }
