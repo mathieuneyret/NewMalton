@@ -43,7 +43,7 @@ class EnigmeVerificationReponsesController extends AbstractController
                 return $this->enigmeVerificationReponses->getVerificationSolutionUniqueEnigme($enigme, $answer);
                 break;
             case 'multiple':
-                return $this->enigmeVerificationReponses->getVerificationSolutionMultipleEnigme($enigme);
+                return $this->enigmeVerificationReponses->getVerificationSolutionMultipleEnigme($enigme, $answer);
                 break;
             case 'choix':
                 return $this->enigmeVerificationReponses->getVerificationSolutionAChoixEnigme($enigme, $answer);

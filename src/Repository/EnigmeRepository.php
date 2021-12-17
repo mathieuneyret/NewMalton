@@ -19,7 +19,7 @@ class EnigmeRepository extends ServiceEntityRepository
         parent::__construct($registry, Enigme::class);
     }
     
-    public function getSolutionUnique(int $id)
+    public function getMessageAndImageResponseCorrect(int $id)
     {
         return $this->createQueryBuilder('e')
             ->select('e.message_response_is_correct, e.image_response_is_correct')
