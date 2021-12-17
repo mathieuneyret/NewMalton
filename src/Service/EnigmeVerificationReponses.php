@@ -71,14 +71,12 @@ class EnigmeVerificationReponses
         return $solutionUnique instanceof SolutionAChoix;
     }
 
-    public function getVerificationSolutionMultipleEnigme(Enigme $enigme): bool
+    public function getVerificationSolutionMultipleEnigme(Enigme $enigme)
     {
-        return false;
-        //to do next time
-        $solutionUnique = $this->solutionMultipleRepository->findOneBy([
+        /*$solutionUnique = $this->solutionMultipleRepository->findOneBy([
             'enigme' => $enigme,
         ]);
 
-        return $solutionUnique instanceof SolutionMultiple;
+        return $solutionUnique instanceof SolutionMultiple;*/
     }
 }
