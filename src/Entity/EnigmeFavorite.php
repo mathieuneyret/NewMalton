@@ -8,6 +8,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Repository\EnigmeFavoriteRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use App\Filter\FilterLogic;
 
 /**
  * @ApiResource(
@@ -16,7 +17,9 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * )
  * @ApiFilter(SearchFilter::class, properties={
  *     "user": "exact",
+ *     "enigme": "exact",
  * })
+ * @ApiFilter(FilterLogic::class)
  * @ORM\Entity(repositoryClass=EnigmeFavoriteRepository::class)
  */
 class EnigmeFavorite
