@@ -6,6 +6,14 @@ LE SAUX Logan
 NEYRET Mathieu
 NICOLAS Théo
 
+# Commandes à lancer :
+git clone https://github.com/mathieuneyret/NewMalton.git
+composer install
+php bin/console hautelook:fixtures:load (pour load les fixtures de base)
+
+L'accès au backoffice se fait sur /admin
+Exemple compte admin => mail : logan.lesaux@gmail.com, mdp : symfony 
+
 # First Step
 
 git clone https://github.com/mathieuneyret/NewMalton.git
