@@ -1,4 +1,37 @@
 App\Entity\EnigmeFavorite:
-  enigmefavorite_{1..30}:
-    user: '@users_<numberBetween(1, 4)>'
-    enigme: '@enigme_<numberBetween(1, 10)>'
+  enigmefavorite_1:
+    user: '@users_1'
+    enigme: '@enigme_1'
+  enigmefavorite_2:
+    user: '@users_1'
+    enigme: '@enigme_2'
+  enigmefavorite_3:
+    user: '@users_1'
+    enigme: '@enigme_3'
+  enigmefavorite_4:
+    user: '@users_2'
+    enigme: '@enigme_1'
+  enigmefavorite_5:
+    user: '@users_2'
+    enigme: '@enigme_2'
+  enigmefavorite_6:
+    user: '@users_2'
+    enigme: '@enigme_3'
+  enigmefavorite_7:
+    user: '@users_3'
+    enigme: '@enigme_1'
+  enigmefavorite_8:
+    user: '@users_3'
+    enigme: '@enigme_2'
+  enigmefavorite_9:
+    user: '@users_3'
+    enigme: '@enigme_3'
+  enigmefavorite_10:
+    user: '@users_4'
+    enigme: '@enigme_1'
+  enigmefavorite_11:
+    user: '@users_4'
+    enigme: '@enigme_2'
+  enigmefavorite_12:
+    user: '@users_4'
+    enigme: '@enigme_3'
